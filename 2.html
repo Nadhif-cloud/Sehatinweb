@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2 - HTML + CSS | Sehatin</title>
+    <!-- Google Fonts Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Task 2 External CSS -->
+    <link rel="stylesheet" href="2.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-wrapper">
+            <a href="#hero" class="brand">
+                <div class="brand-icon">S</div>
+                <span>Sehatin</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#hero">Beranda</a></li>
+                <li><a href="#fitur">Fitur Utama</a></li>
+                <li><a href="#kalkulator">Kalkulator</a></li>
+                <li><a href="#statistik">Statistik</a></li>
+                <li><a href="#agenda">Agenda</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+            </ul>
+            <a href="#fitur" class="btn btn-primary">Masuk</a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- 1. HERO SECTION -->
+        <section id="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <span class="tag tag--teal">Solusi Pola Hidup Sehat</span>
+                    <h1>Rencana <span class="text-highlight">Kesehatan Harian</span> Sesuai Tubuh &amp; Targetmu</h1>
+                    <p class="section-sub">Bingung menentukan pola makan dan olahraga yang sesuai? Sehatin memberikan rencana harian adaptif lengkap dengan kalkulator BMI &amp; hitung kalori harian secara gratis.</p>
+                    <div style="display: flex; gap: 12px; margin-top: 24px;">
+                        <a href="#fitur" class="btn btn-primary">Lihat Program →</a>
+                        <a href="#kalkulator" class="btn btn-outline">Kalkulator BMI</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <h3>BMI</h3>
+                            <p>Kalkulator Presisi</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>Kalori</h3>
+                            <p>Hitung Kebutuhan</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>Adaptif</h3>
+                            <p>Daily Plan Otomatis</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-card">
+                    <div class="card-header">
+                        <div>
+                            <h4 style="font-weight: 700;">Rencana Harian Sehatin</h4>
+                            <p style="font-size: 12px; color: var(--mid);">Personalisasi Otomatis</p>
+                        </div>
+                        <span class="tag tag--teal">Aktif</span>
+                    </div>
+                    <div>
+                        <div style="margin-bottom: 16px;">
+                            <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 600;">
+                                <span>Target Kalori Harian</span>
+                                <span>1,850 / 2,100 kcal</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 88%;"></div>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 16px;">
+                            <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 600;">
+                                <span>Latihan Fisik Hari Ini</span>
+                                <span>25 Menit</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%; background: var(--secondary);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. FITUR UTAMA SECTION -->
+        <section id="fitur">
+            <div class="container">
+                <div class="section-header">
+                    <span class="tag tag--teal">Solusi Terpadu</span>
+                    <h2 class="section-title">Program Prioritas Sehatin</h2>
+                    <p class="section-sub">Empat fitur utama Sehatin untuk mempermudah gaya hidup sehat tanpa kebingungan menentukan nutrisi dan latihan harian.</p>
+                </div>
+
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <img src="assets/bmi_calculator_feature.jpg" alt="Kalkulator BMI" class="feature-img">
+                        <h3>Kalkulator BMI &amp; Kalori</h3>
+                        <p>Hitung Indeks Massa Tubuh (BMI) dan estimasi kebutuhan kalori harian sesuai usia, berat badan, dan tinggi badan.</p>
+                    </article>
+
+                    <article class="feature-card">
+                        <img src="assets/daily_plan_feature.jpg" alt="Daily Plan" class="feature-img">
+                        <h3>Daily Plan Adaptif</h3>
+                        <p>Rencana kesehatan harian pintar yang secara otomatis menyesuaikan target nutrisi dan jadwal waktu luang.</p>
+                    </article>
+
+                    <article class="feature-card">
+                        <img src="assets/workout_routine_feature.jpg" alt="Latihan Fisik" class="feature-img">
+                        <h3>Panduan Latihan Fisik</h3>
+                        <p>Variasi gerakan olahraga efektif dari pemula hingga menengah yang hemat waktu, dapat dilakukan di kamar kost.</p>
+                    </article>
+
+                    <article class="feature-card">
+                        <img src="assets/healthy_food_feature.jpg" alt="Makanan Sehat" class="feature-img">
+                        <h3>Rekomendasi Makanan</h3>
+                        <p>Rekomendasi resep dan menu makanan sehat lezat, ramah kantong mahasiswa, serta mudah disiapkan sehari-hari.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. KALKULATOR SECTION -->
+        <section id="kalkulator">
+            <div class="container calc-grid">
+                <div>
+                    <span class="tag tag--yellow">Kalkulator Sehatin</span>
+                    <h2 class="section-title">Cek Indeks Massa Tubuh &amp; Kebutuhan Kalori Harianmu</h2>
+                    <p class="section-sub">Fitur perhitungan BMI dan estimasi kebutuhan energi harian sesuai profil tubuh dan aktivitas fisik.</p>
+                </div>
+
+                <div class="calc-form">
+                    <h3 style="margin-bottom: 20px;">Tampilan Form Kalkulator</h3>
+                    <div class="form-group">
+                        <label>Tinggi Badan (cm)</label>
+                        <input type="number" value="170" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Berat Badan (kg)</label>
+                        <input type="number" value="65" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Usia (Tahun)</label>
+                        <input type="number" value="21" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Tingkat Aktivitas</label>
+                        <select disabled>
+                            <option>Olahraga 1-3x / Minggu</option>
+                        </select>
+                    </div>
+                    <div class="result-box">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span>Skor BMI:</span>
+                            <strong style="color: var(--primary); font-size: 20px;">22.5</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>Kategori:</span>
+                            <strong style="color: #059669;">Ideal (Normal)</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. STATISTIK SECTION -->
+        <section id="statistik">
+            <div class="container">
+                <div class="section-header">
+                    <span class="tag tag--teal">Kepercayaan Pengguna</span>
+                    <h2 class="section-title">Dampak Sehatin Bagi Pengguna</h2>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stats-card">
+                        <h3>120K+</h3>
+                        <p>Rencana Sehat Terbuat</p>
+                    </div>
+                    <div class="stats-card">
+                        <h3>98.4%</h3>
+                        <p>Akurasi Perhitungan</p>
+                    </div>
+                    <div class="stats-card">
+                        <h3>45K+</h3>
+                        <p>Mahasiswa Aktif</p>
+                    </div>
+                    <div class="stats-card">
+                        <h3>4.9 / 5</h3>
+                        <p>Rating Kepuasan</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. AGENDA SECTION -->
+        <section id="agenda">
+            <div class="container">
+                <div class="section-header">
+                    <span class="tag tag--teal">Komunitas</span>
+                    <h2 class="section-title">Agenda &amp; Tantangan Sehatin</h2>
+                </div>
+
+                <div class="agenda-grid">
+                    <div class="agenda-card">
+                        <span class="tag tag--blue" style="margin-bottom: 12px;">15-22 Okt 2026</span>
+                        <h3 style="margin-bottom: 8px;">Challenge 7-Hari Pola Makan Sehat</h3>
+                        <p style="font-size: 13px; color: var(--mid);">Tantangan mengatur porsi makan gizi seimbang hemat biaya selama 7 hari berturut-turut.</p>
+                    </div>
+                    <div class="agenda-card">
+                        <span class="tag tag--teal" style="margin-bottom: 12px;">25 Okt 2026</span>
+                        <h3 style="margin-bottom: 8px;">Webinar: Kebugaran Saat Kuliah</h3>
+                        <p style="font-size: 13px; color: var(--mid);">Tips manajemen waktu olahraga 15 menit dan menjaga kestabilan energi harian.</p>
+                    </div>
+                    <div class="agenda-card">
+                        <span class="tag tag--yellow" style="margin-bottom: 12px;">08 Nov 2026</span>
+                        <h3 style="margin-bottom: 8px;">Workshop Hitung Kalori</h3>
+                        <p style="font-size: 13px; color: var(--mid);">Sesi langsung mempraktekkan perhitungan kalori bahan makanan sehari-hari.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. TENTANG SECTION -->
+        <section id="tentang">
+            <div class="container">
+                <div class="about-box">
+                    <span class="tag tag--teal">Visi Sehatin</span>
+                    <h2 class="section-title">Tentang Sehatin</h2>
+                    <p class="section-sub" style="margin-bottom: 24px;">Sehatin lahir dari pemahaman bahwa banyak mahasiswa dan masyarakat umum ingin hidup sehat, namun sering bingung menentukan pola makan dan jenis olahraga yang sesuai dengan kondisi tubuh dan jadwal waktu mereka.</p>
+                    <a href="#fitur" class="btn btn-primary">Mulai Rencana Sehatmu</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <strong style="font-size: 20px; color: #fff;">Sehatin</strong>
+                <p style="margin-top: 8px; font-size: 13px;">Website penyedia rencana kesehatan harian, kalkulator BMI &amp; kalori harian sesuai kondisi tubuh.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigasi</h4>
+                <ul>
+                    <li><a href="#hero">Beranda</a></li>
+                    <li><a href="#fitur">Fitur Utama</a></li>
+                    <li><a href="#kalkulator">Kalkulator</a></li>
+                    <li><a href="#statistik">Statistik</a></li>
+                    <li><a href="#agenda">Agenda</a></li>
+                    <li><a href="#tentang">Tentang</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Fitur</h4>
+                <ul>
+                    <li>Hitung BMI</li>
+                    <li>Estimasi Kalori</li>
+                    <li>Latihan Fisik</li>
+                    <li>Rekomendasi Makanan</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Kontak</h4>
+                <p style="font-size: 13px;">halo@sehatin.id</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sehatin — Task 02: HTML &amp; CSS Separated</p>
+        </div>
+    </footer>
+</body>
+</html>

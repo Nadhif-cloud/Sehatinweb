@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1 - Structure Only | Sehatin</title>
+</head>
+<body>
+    <!-- HEADER & NAVBAR -->
+    <header>
+        <nav>
+            <div>
+                <img src="assets/Sehatin.svg" alt="Sehatin Logo" width="32" height="32">
+                <strong>Sehatin</strong>
+            </div>
+            <ul>
+                <li><a href="#hero">Beranda</a></li>
+                <li><a href="#fitur">Fitur Utama</a></li>
+                <li><a href="#kalkulator">Kalkulator</a></li>
+                <li><a href="#statistik">Statistik</a></li>
+                <li><a href="#agenda">Agenda</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+            </ul>
+            <div>
+                <a href="#fitur"><button type="button">Masuk</button></a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- 1. HERO SECTION -->
+        <section id="hero">
+            <div>
+                <span>Solusi Pola Hidup Sehat Mahasiswa &amp; Umum</span>
+                <h1>Rencana <span>Kesehatan Harian</span> Sesuai Tubuh &amp; Targetmu</h1>
+                <p>Bingung menentukan pola makan dan olahraga yang sesuai? Sehatin memberikan rencana harian adaptif lengkap dengan kalkulator BMI &amp; hitung kalori harian secara gratis.</p>
+                <div>
+                    <a href="#fitur"><button type="button">Lihat Program</button></a>
+                    <a href="#kalkulator"><button type="button">Lihat Kalkulator BMI</button></a>
+                </div>
+                <div>
+                    <div>
+                        <h3>BMI</h3>
+                        <p>Kalkulator Presisi</p>
+                    </div>
+                    <div>
+                        <h3>Kalori</h3>
+                        <p>Hitung Kebutuhan</p>
+                    </div>
+                    <div>
+                        <h3>Adaptif</h3>
+                        <p>Daily Plan Otomatis</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h4>Rencana Harian Sehatin</h4>
+                <p>Personalisasi Otomatis (Aktif)</p>
+                <div>
+                    <p>Target Kalori Harian: 1,850 / 2,100 kcal</p>
+                    <p>Latihan Fisik Hari Ini: 25 Menit (Selesai)</p>
+                    <p>Status Tubuh: Ideal (21.4)</p>
+                    <p>Menu Makan: Gizi Seimbang</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. FITUR UTAMA SECTION -->
+        <section id="fitur">
+            <span>Solusi Terpadu</span>
+            <h2>Program Prioritas Sehatin</h2>
+            <p>Empat fitur utama Sehatin untuk mempermudah gaya hidup sehat tanpa kebingungan menentukan nutrisi dan latihan harian.</p>
+
+            <div>
+                <!-- Card 1 -->
+                <article>
+                    <img src="assets/bmi_calculator_feature.jpg" alt="Kalkulator BMI &amp; Kalori Sehatin" width="300">
+                    <h3>Kalkulator BMI &amp; Kalori</h3>
+                    <p>Hitung Indeks Massa Tubuh (BMI) dan estimasi kebutuhan kalori harian sesuai usia, berat badan, tinggi badan, dan tingkat aktivitas fisik.</p>
+                </article>
+
+                <!-- Card 2 -->
+                <article>
+                    <img src="assets/daily_plan_feature.jpg" alt="Daily Plan Adaptif Sehatin" width="300">
+                    <h3>Daily Plan Adaptif</h3>
+                    <p>Rencana kesehatan harian pintar yang secara otomatis menyesuaikan target nutrisi dan jadwal waktu luang yang kamu miliki.</p>
+                </article>
+
+                <!-- Card 3 -->
+                <article>
+                    <img src="assets/workout_routine_feature.jpg" alt="Panduan Latihan Fisik Sehatin" width="300">
+                    <h3>Panduan Latihan Fisik</h3>
+                    <p>Variasi gerakan olahraga efektif dari pemula hingga menengah yang hemat waktu, dapat dilakukan di kamar kost tanpa peralatan mahal.</p>
+                </article>
+
+                <!-- Card 4 -->
+                <article>
+                    <img src="assets/healthy_food_feature.jpg" alt="Rekomendasi Makanan Sehat Sehatin" width="300">
+                    <h3>Rekomendasi Makanan</h3>
+                    <p>Rekomendasi resep dan menu makanan sehat lezat, ramah kantong mahasiswa, serta mudah disiapkan sehari-hari.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 3. KALKULATOR SECTION -->
+        <section id="kalkulator">
+            <div>
+                <span>Kalkulator Sehatin</span>
+                <h2>Cek Indeks Massa Tubuh &amp; Kebutuhan Kalori Harianmu</h2>
+                <p>Fitur perhitungan BMI dan estimasi kebutuhan energi harian sesuai profil tubuh dan aktivitas fisik.</p>
+                <ul>
+                    <li>Perhitungan standar WHO &amp; Kemenkes RI</li>
+                    <li>Rekomendasi target kalori harian presisi</li>
+                    <li>Tampilan antarmuka yang bersih &amp; jelas</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Tampilan Form Kalkulator BMI &amp; Kalori</h3>
+                <form>
+                    <div>
+                        <label for="tinggi">Tinggi Badan (cm):</label>
+                        <input type="number" id="tinggi" name="tinggi" value="170">
+                    </div>
+                    <div>
+                        <label for="berat">Berat Badan (kg):</label>
+                        <input type="number" id="berat" name="berat" value="65">
+                    </div>
+                    <div>
+                        <label for="usia">Usia (Tahun):</label>
+                        <input type="number" id="usia" name="usia" value="21">
+                    </div>
+                    <div>
+                        <label for="aktivitas">Tingkat Aktivitas:</label>
+                        <select id="aktivitas" name="aktivitas">
+                            <option value="ringan">Olahraga 1-3x / Minggu</option>
+                        </select>
+                    </div>
+                    <button type="button">Hitung BMI &amp; Kalori</button>
+                </form>
+                <div>
+                    <p><strong>Skor BMI:</strong> 22.5</p>
+                    <p><strong>Kategori:</strong> Berat Badan Ideal (Normal)</p>
+                    <p><strong>Estimasi Kalori:</strong> 2,150 kcal / hari</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. STATISTIK SECTION -->
+        <section id="statistik">
+            <span>Kepercayaan Pengguna</span>
+            <h2>Dampak Sehatin Bagi Pengguna</h2>
+            <p>Statistik penggunaan Sehatin oleh mahasiswa dan masyarakat umum di seluruh Indonesia.</p>
+
+            <div>
+                <div>
+                    <h3>120K+</h3>
+                    <p>Rencana Sehat Terbuat</p>
+                </div>
+                <div>
+                    <h3>98.4%</h3>
+                    <p>Akurasi Perhitungan Kalori</p>
+                </div>
+                <div>
+                    <h3>45K+</h3>
+                    <p>Mahasiswa Aktif</p>
+                </div>
+                <div>
+                    <h3>4.9 / 5</h3>
+                    <p>Rating Kepuasan</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. AGENDA SECTION -->
+        <section id="agenda">
+            <span>Komunitas &amp; Kegiatan</span>
+            <h2>Agenda &amp; Tantangan Sehatin</h2>
+            <p>Ikuti berbagai tantangan pola hidup sehat harian dan webinar kebugaran bersama para ahli gizi &amp; fitness coach.</p>
+
+            <div>
+                <article>
+                    <p>15-22 Okt 2026 - Online Challenge</p>
+                    <h3>Challenge 7-Hari Pola Makan Sehat Mahasiswa</h3>
+                    <p>Tantangan mengatur porsi makan gizi seimbang hemat biaya selama 7 hari berturut-turut.</p>
+                </article>
+                <article>
+                    <p>25 Okt 2026 - Webinar Zoom</p>
+                    <h3>Webinar: Menjaga Kebugaran di Tengah Kesibukan Kuliah</h3>
+                    <p>Tips manajemen waktu olahraga 15 menit dan menjaga kestabilan energi harian saat tugas menumpuk.</p>
+                </article>
+                <article>
+                    <p>08 Nov 2026 - Workshop Live</p>
+                    <h3>Workshop Hitung Kalori &amp; Meal Prep Hemat</h3>
+                    <p>Sesi langsung mempraktekkan perhitungan kalori bahan makanan sehari-hari dan cara persiapan menu 1 minggu.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 6. TENTANG SECTION -->
+        <section id="tentang">
+            <span>Visi Sehatin</span>
+            <h2>Tentang Sehatin</h2>
+            <p>Sehatin lahir dari pemahaman bahwa banyak mahasiswa dan masyarakat umum ingin hidup sehat, namun sering bingung menentukan pola makan dan jenis olahraga yang sesuai dengan kondisi tubuh dan jadwal waktu mereka. Sehatin hadir memberikan solusi praktis, terukur, dan terjangkau bagi semua orang.</p>
+            <a href="#fitur"><button type="button">Mulai Rencana Sehatmu Hari Ini</button></a>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div>
+            <strong>Sehatin</strong>
+            <p>Website penyedia rencana kesehatan harian, kalkulator BMI &amp; kalori harian sesuai kondisi tubuh dan waktu luang pengguna.</p>
+        </div>
+        <div>
+            <h4>Navigasi</h4>
+            <ul>
+                <li><a href="#hero">Beranda</a></li>
+                <li><a href="#fitur">Fitur Utama</a></li>
+                <li><a href="#kalkulator">Kalkulator BMI &amp; Kalori</a></li>
+                <li><a href="#statistik">Statistik Dampak</a></li>
+                <li><a href="#agenda">Agenda &amp; Tantangan</a></li>
+                <li><a href="#tentang">Tentang Sehatin</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Fitur Sehatin</h4>
+            <ul>
+                <li>Hitung Indeks Massa Tubuh (BMI)</li>
+                <li>Estimasi Kalori Harian (BMR &amp; TDEE)</li>
+                <li>Panduan Rutinitas Latihan Fisik</li>
+                <li>Rekomendasi Makanan Sehat Hemat</li>
+                <li>Daily Plan Adaptif</li>
+            </ul>
+        </div>
+        <div>
+            <h4>Kontak Kami</h4>
+            <p>Email: halo@sehatin.id</p>
+            <p>Komunitas: @sehatin.id</p>
+        </div>
+        <div>
+            <p>&copy; 2026 Sehatin — Task 01: Structure HTML</p>
+        </div>
+    </footer>
+</body>
+</html>

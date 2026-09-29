@@ -1,13 +1,594 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/Sehatin.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sehatin</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sehatin — Platform Layanan & Program Kesehatan Indonesia</title>
+    <meta name="description" content="Sehatin - Platform terpadu program kesehatan nasional, edukasi gizi, layanan medis gratis, dan fasilitas kesehatan masyarakat Indonesia.">
+    <link rel="icon" type="image/svg+xml" href="assets/Sehatin.svg">
+
+    <!-- Google Fonts Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              sehatin: {
+                DEFAULT: '#007789',
+                dark: '#005a69',
+                light: '#7fdcd6'
+              }
+            },
+            fontFamily: {
+              sans: ['Poppins', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Custom JS -->
+    <script src="script.js" defer></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-[#007789] selection:text-white">
+
+    <!-- NAVBAR HEADER -->
+    <header id="navbar-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+        <nav class="w-full px-6 lg:px-12 py-4 flex items-center justify-between transition-all duration-300 bg-white/75 backdrop-blur-sm border-b border-slate-100/60">
+            <!-- Logo & Brand -->
+            <a href="#hero" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#007789] to-[#7fdcd6] flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 10542.93 8396.21" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9642.84 778.01c-574.17,-518.76 -1272.78,-778.01 -2095.6,-778.01 -1088.65,0 -1847.27,459.18 -2275.71,1377.56 -428.52,-918.36 -1187.13,-1377.56 -2275.78,-1377.56 -822.83,0 -1521.44,259.25 -2095.61,778.01 -600,544.27 -900.14,1215.95 -900.14,2015.31 0,850.32 351.47,1730.56 1054.35,2640.2 394.33,518.75 1075.76,1220.22 2044.39,2104.59 351.52,323.61 662.31,602.82 932.46,837.56 72.33,-164.67 147.83,-302.36 147.83,-302.36 -31.58,-50.58 -126.22,-227.23 -56.76,-492.42 69.39,-265.19 -31.69,-719.52 -164.15,-915.25 -132.52,-195.73 -688.02,-934.18 -820.54,-1502.25 0,0 -637.51,94.58 -1066.77,-239.93 -429.28,-334.63 -1035.21,-650.06 -1148.8,-675.45 -113.64,-25.25 -6.38,-246.1 31.58,-347.12 37.88,-100.96 -145.15,-492.42 366.13,-927.93 329.53,-280.74 569.77,-577.04 699.11,-752.37l298.22 -475.31c385.03,-179.91 796.05,-47.32 796.05,-47.32l43.49 381.95c0,0 -302.99,122.95 -322,122.95 -18.88,0 -379.52,211.49 -379.86,211.6 -67.48,107.84 -244.71,410.73 -295.53,684.83 -63.14,340.87 -56.83,561.74 -56.83,561.74l208.3 -6.32c0,0 214.6,-176.72 536.55,-31.58 321.94,145.22 321.94,145.22 321.94,145.22 0,0 183.1,-202.03 549.12,-132.59 366.13,69.46 542.85,347.2 725.96,372.45 183.04,25.25 372.39,0 372.39,-258.81 0,-258.86 -82.01,-422.96 -82.01,-422.96 0,0 -179.97,-14.15 -227.23,-160.96 -47.39,-146.75 -52.11,-426.02 -9.49,-440.31 42.73,-14.16 104.15,-18.88 104.15,-18.88 0,0 -56.76,-454.46 -33.22,-553.89 21.17,-88.65 196.62,-327.35 619.58,-391.83l0 -15.37c28.63,0.95 56.25,2.87 83.22,5.3 26.86,-2.42 54.46,-4.35 83.17,-5.3l0 15.37c423.02,64.48 598.34,303.2 619.51,391.83 23.67,99.36 -33.22,553.89 -33.22,553.89 0,0 61.6,4.66 104.21,18.88 42.67,14.28 37.96,293.55 -9.49,440.31 -47.32,146.81 -227.23,160.96 -227.23,160.96 0,0 -82.01,164.1 -82.01,422.96 0,258.81 189.35,284.06 372.32,258.81 183.16,-25.25 359.88,-302.99 725.96,-372.45 366.07,-69.46 549.18,132.59 549.18,132.59 0,0 0,0 321.81,-145.22 322,-145.22 536.6,31.58 536.6,31.58l208.3 6.32c0,0 6.38,-220.85 -56.89,-561.74 -50.7,-274.1 -228.07,-576.85 -295.53,-684.83 0,0 -360.96,-211.6 -379.86,-211.6 -18.95,0 -321.94,-122.95 -321.94,-122.95l43.49 -381.95c0,0 410.97,-132.59 795.99,47.32l298.27 475.31c129.22,175.33 369.58,471.63 699.11,752.37 511.29,435.53 328.25,826.91 366.07,927.93 37.88,101.02 145.22,321.87 31.63,347.12 -113.59,25.31 -719.57,340.76 -1148.91,675.45 -429.21,334.5 -1066.72,239.93 -1066.72,239.93 -132.52,568.05 -688.01,1306.58 -820.67,1502.25 -132.4,195.73 -233.42,650.06 -164.09,915.25 69.46,265.19 -25.25,441.83 -56.63,492.42 0,0 81.82,149.31 156.69,322.89 259.31,-223.22 571.63,-504.97 936.49,-845.28 1302.81,-1198.99 2142.87,-2134.33 2519.97,-2806.19 377.11,-671.68 565.7,-1322.21 565.7,-1951.42 0,-799.36 -300.01,-1470.99 -900.01,-2015.31l-0.07 0z"/>
+                    </svg>
+                </div>
+                <span class="text-xl font-bold tracking-tight text-slate-900">Sehatin</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#hero" class="nav-link text-sm font-medium transition-colors hover:text-[#007789] text-[#007789] font-bold">Beranda</a>
+                <a href="#fitur" class="nav-link text-sm font-medium transition-colors hover:text-[#007789] text-slate-600">Fitur Utama</a>
+                <a href="#kalkulator" class="nav-link text-sm font-medium transition-colors hover:text-[#007789] text-slate-600">Kalkulator</a>
+                <a href="#statistik" class="nav-link text-sm font-medium transition-colors hover:text-[#007789] text-slate-600">Statistik</a>
+                <a href="#agenda" class="nav-link text-sm font-medium transition-colors hover:text-[#007789] text-slate-600">Agenda</a>
+                <a href="#tentang" class="nav-link text-sm font-medium transition-colors hover:text-[#007789] text-slate-600">Tentang</a>
+            </div>
+
+            <!-- Desktop Action Button -->
+            <div class="hidden md:flex items-center">
+                <a href="#fitur" class="bg-amber-400 hover:bg-amber-500 text-slate-900 font-bold text-sm py-2.5 px-6 rounded-full shadow-sm hover:shadow transition-all duration-200 transform hover:-translate-y-0.5">
+                    Masuk
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none" aria-label="Toggle Navigation Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-lg border-b border-slate-100 px-6 py-4 space-y-3 shadow-xl">
+            <a href="#hero" class="block py-2 text-base font-medium text-slate-700 hover:text-[#007789]">Beranda</a>
+            <a href="#fitur" class="block py-2 text-base font-medium text-slate-700 hover:text-[#007789]">Fitur Utama</a>
+            <a href="#kalkulator" class="block py-2 text-base font-medium text-slate-700 hover:text-[#007789]">Kalkulator</a>
+            <a href="#statistik" class="block py-2 text-base font-medium text-slate-700 hover:text-[#007789]">Statistik</a>
+            <a href="#agenda" class="block py-2 text-base font-medium text-slate-700 hover:text-[#007789]">Agenda</a>
+            <a href="#tentang" class="block py-2 text-base font-medium text-slate-700 hover:text-[#007789]">Tentang</a>
+            <div class="pt-2 border-t border-slate-100">
+                <a href="#fitur" class="block w-full bg-amber-400 hover:bg-amber-500 text-slate-900 font-bold py-2.5 px-6 rounded-xl shadow-sm text-center transition-colors">
+                    Masuk
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- 1. HERO SECTION -->
+        <section id="hero" class="relative min-h-screen pt-28 pb-16 lg:pt-36 lg:pb-24 bg-gradient-to-b from-blue-50/70 via-slate-50 to-white flex items-center overflow-hidden">
+            <div class="absolute top-20 left-10 w-96 h-96 bg-[#007789]/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-80 h-80 bg-amber-300/20 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="container mx-auto px-6 lg:px-12 relative z-10">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    <!-- Left Column -->
+                    <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 border border-teal-200 text-[#007789] text-xs font-bold uppercase tracking-wider">
+                            <span class="w-2 h-2 rounded-full bg-[#007789] animate-ping"></span>
+                            Solusi Pola Hidup Sehat Mahasiswa &amp; Umum
+                        </div>
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight">
+                            Rencana <span class="text-[#007789]">Kesehatan Harian</span> Sesuai Tubuh &amp; Targetmu
+                        </h1>
+
+                        <p class="text-base sm:text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                            Bingung menentukan pola makan dan olahraga yang sesuai? Sehatin memberikan rencana harian adaptif lengkap dengan kalkulator BMI &amp; hitung kalori harian secara gratis.
+                        </p>
+
+                        <!-- CTA Buttons -->
+                        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                            <a href="#fitur" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-amber-400 hover:bg-amber-500 text-slate-900 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 text-base">
+                                <span>Lihat Program</span>
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+
+                            <a href="#kalkulator" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-slate-300 hover:border-[#007789] bg-white text-slate-700 hover:text-[#007789] font-medium px-6 py-4 rounded-xl shadow-sm hover:shadow transition-all duration-200 text-base">
+                                <span>Lihat Kalkulator BMI</span>
+                            </a>
+                        </div>
+
+                        <!-- Highlights -->
+                        <div class="pt-6 border-t border-slate-200/80 grid grid-cols-3 gap-4 text-center lg:text-left">
+                            <div>
+                                <p class="text-2xl font-black text-[#007789]">BMI</p>
+                                <p class="text-xs text-slate-500 font-medium">Kalkulator Presisi</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-black text-[#007789]">Kalori</p>
+                                <p class="text-xs text-slate-500 font-medium">Hitung Kebutuhan</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-black text-[#007789]">Adaptif</p>
+                                <p class="text-xs text-slate-500 font-medium">Daily Plan Otomatis</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Card Graphic -->
+                    <div class="lg:col-span-6 relative flex justify-center">
+                        <div class="relative w-full max-w-lg">
+                            <div class="absolute -inset-1.5 bg-gradient-to-r from-[#007789] to-[#7fdcd6] rounded-3xl blur-xl opacity-30 animate-pulse"></div>
+
+                            <div class="relative bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden space-y-6">
+                                <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-[#007789]/10 text-[#007789] flex items-center justify-center font-bold">
+                                            S
+                                        </div>
+                                        <div>
+                                            <h4 class="text-sm font-bold text-slate-900">Rencana Harian Sehatin</h4>
+                                            <p class="text-xs text-slate-500">Personalisasi Otomatis</p>
+                                        </div>
+                                    </div>
+                                    <span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-semibold rounded-full">Aktif</span>
+                                </div>
+
+                                <div class="space-y-4">
+                                    <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 space-y-2">
+                                        <div class="flex justify-between text-xs font-semibold">
+                                            <span class="text-slate-700">Target Kalori Harian</span>
+                                            <span class="text-[#007789]">1,850 / 2,100 kcal</span>
+                                        </div>
+                                        <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                                            <div class="bg-gradient-to-r from-[#007789] to-cyan-400 h-full w-[88%] rounded-full"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 space-y-2">
+                                        <div class="flex justify-between text-xs font-semibold">
+                                            <span class="text-slate-700">Latihan Fisik Hari Ini</span>
+                                            <span class="text-amber-600">25 Menit (Selesai)</span>
+                                        </div>
+                                        <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                                            <div class="bg-amber-400 h-full w-[100%] rounded-full"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="grid grid-cols-2 gap-3 pt-2">
+                                        <div class="p-3 bg-blue-50/80 rounded-xl border border-blue-100 flex items-center gap-2">
+                                            <div class="w-7 h-7 rounded-lg bg-blue-500 text-white flex items-center justify-center text-xs font-bold">BMI</div>
+                                            <div>
+                                                <p class="text-[10px] text-slate-500">Status Tubuh</p>
+                                                <p class="text-xs font-bold text-slate-800">Ideal (21.4)</p>
+                                            </div>
+                                        </div>
+                                        <div class="p-3 bg-emerald-50/80 rounded-xl border border-emerald-100 flex items-center gap-2">
+                                            <div class="w-7 h-7 rounded-lg bg-emerald-500 text-white flex items-center justify-center text-xs font-bold">🥗</div>
+                                            <div>
+                                                <p class="text-[10px] text-slate-500">Menu Makan</p>
+                                                <p class="text-xs font-bold text-slate-800">Gizi Seimbang</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-xs text-amber-900 flex items-center gap-2">
+                                    <span class="text-base">💡</span>
+                                    <span><strong>Tips Mahasiswa:</strong> Atur waktu latihan 15 menit di sela sela jadwal kuliah!</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. FITUR UTAMA SECTION -->
+        <section id="fitur" class="py-20 lg:py-28 bg-white relative">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="text-xs font-extrabold text-[#007789] uppercase tracking-widest bg-teal-50 px-3 py-1 rounded-full border border-teal-100">Solusi Terpadu</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                        Program Prioritas Sehatin
+                    </h2>
+                    <p class="text-base sm:text-lg text-slate-600">
+                        Empat fitur utama Sehatin untuk mempermudah gaya hidup sehat tanpa kebingungan menentukan nutrisi dan latihan harian.
+                    </p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group flex flex-col justify-between overflow-hidden">
+                        <div>
+                            <div class="w-full h-48 rounded-2xl overflow-hidden mb-6 border border-slate-100 shadow-inner group-hover:scale-105 transition-transform duration-500 bg-blue-50">
+                                <img src="assets/bmi_calculator_feature.jpg" alt="Kalkulator BMI &amp; Kalori Sehatin" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#007789] transition-colors">
+                                Kalkulator BMI &amp; Kalori
+                            </h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Hitung Indeks Massa Tubuh (BMI) dan estimasi kebutuhan kalori harian sesuai usia, berat badan, tinggi badan, dan tingkat aktivitas fisik.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-blue-600">
+                            <span>Perhitungan Presisi</span>
+                            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group flex flex-col justify-between overflow-hidden">
+                        <div>
+                            <div class="w-full h-48 rounded-2xl overflow-hidden mb-6 border border-slate-100 shadow-inner group-hover:scale-105 transition-transform duration-500 bg-red-50">
+                                <img src="assets/daily_plan_feature.jpg" alt="Daily Plan Adaptif Sehatin" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-red-500 transition-colors">
+                                Daily Plan Adaptif
+                            </h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Rencana kesehatan harian pintar yang secara otomatis menyesuaikan target nutrisi dan jadwal waktu luang yang kamu miliki.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-red-500">
+                            <span>Rencana Personalisasi</span>
+                            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group flex flex-col justify-between overflow-hidden">
+                        <div>
+                            <div class="w-full h-48 rounded-2xl overflow-hidden mb-6 border border-slate-100 shadow-inner group-hover:scale-105 transition-transform duration-500 bg-emerald-50">
+                                <img src="assets/workout_routine_feature.jpg" alt="Panduan Latihan Fisik Sehatin" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
+                                Panduan Latihan Fisik
+                            </h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Variasi gerakan olahraga efektif dari pemula hingga menengah yang hemat waktu, dapat dilakukan di kamar kost tanpa peralatan mahal.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-emerald-600">
+                            <span>Olahraga Tanpa Alat</span>
+                            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group flex flex-col justify-between overflow-hidden">
+                        <div>
+                            <div class="w-full h-48 rounded-2xl overflow-hidden mb-6 border border-slate-100 shadow-inner group-hover:scale-105 transition-transform duration-500 bg-amber-50">
+                                <img src="assets/healthy_food_feature.jpg" alt="Rekomendasi Makanan Sehat Sehatin" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition-colors">
+                                Rekomendasi Makanan
+                            </h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Rekomendasi resep dan menu makanan sehat lezat, ramah kantong mahasiswa, serta mudah disiapkan sehari-hari.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-amber-600">
+                            <span>Menu Ramah Kantong</span>
+                            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. TAMPILAN FORM KALKULATOR BMI SECTION -->
+        <section id="kalkulator" class="py-20 lg:py-24 bg-gradient-to-br from-slate-900 via-[#007789] to-slate-900 text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-cyan-500/20 via-transparent to-transparent pointer-events-none"></div>
+
+            <div class="container mx-auto px-6 lg:px-12 relative z-10">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-5 space-y-6">
+                        <span class="px-3 py-1 rounded-full bg-amber-400 text-slate-900 text-xs font-bold uppercase tracking-wider">Kalkulator Sehatin</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                            Cek Indeks Massa Tubuh &amp; Kebutuhan Kalori Harianmu
+                        </h2>
+                        <p class="text-slate-300 text-base leading-relaxed">
+                            Fitur perhitungan BMI dan estimasi kebutuhan energi harian sesuai profil tubuh dan aktivitas fisik.
+                        </p>
+                        <ul class="space-y-3 text-sm text-slate-200">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Perhitungan standar WHO &amp; Kemenkes RI
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Rekomendasi target kalori harian presisi
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Tampilan antarmuka yang bersih &amp; jelas
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Calculator Card Form -->
+                    <div class="lg:col-span-7 bg-white text-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 border border-slate-100">
+                        <h3 class="text-xl font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
+                            <span>🧮</span> Tampilan Form Kalkulator BMI &amp; Kalori
+                        </h3>
+
+                        <form id="bmi-form" onsubmit="return false;" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1" for="calc-tinggi">Tinggi Badan (cm)</label>
+                                    <input type="number" id="calc-tinggi" value="170" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-800 text-sm focus:outline-none focus:border-[#007789]">
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1" for="calc-berat">Berat Badan (kg)</label>
+                                    <input type="number" id="calc-berat" value="65" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-800 text-sm focus:outline-none focus:border-[#007789]">
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1" for="calc-usia">Usia (Tahun)</label>
+                                    <input type="number" id="calc-usia" value="21" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-800 text-sm focus:outline-none focus:border-[#007789]">
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1" for="calc-aktivitas">Tingkat Aktivitas</label>
+                                    <select id="calc-aktivitas" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-800 text-sm focus:outline-none focus:border-[#007789]">
+                                        <option value="1.2">Jarang Olahraga (Sedentary)</option>
+                                        <option value="1.375" selected>Olahraga 1-3x / Minggu</option>
+                                        <option value="1.55">Olahraga 3-5x / Minggu</option>
+                                        <option value="1.725">Olahraga 6-7x / Minggu</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Live Result Box -->
+                            <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs font-medium text-slate-500">Skor BMI:</span>
+                                    <span id="calc-result-bmi" class="text-2xl font-black text-[#007789]">22.5</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs font-medium text-slate-500">Kategori Kesehatan:</span>
+                                    <span id="calc-result-kategori" class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
+                                        Berat Badan Ideal (Normal)
+                                    </span>
+                                </div>
+                                <div class="flex items-center justify-between border-t border-slate-200 pt-2">
+                                    <span class="text-xs font-medium text-slate-500">Estimasi Kebutuhan Kalori Harian:</span>
+                                    <span id="calc-result-kalori" class="text-base font-bold text-amber-600">2,150 kcal / hari</span>
+                                </div>
+                            </div>
+
+                            <button type="button" onclick="calculateBMIAndCalories()" class="w-full bg-amber-400 hover:bg-amber-500 text-slate-900 font-bold py-3.5 rounded-xl text-center text-sm shadow-sm transition-colors">
+                                Hitung BMI &amp; Kalori
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. STATISTIK SECTION -->
+        <section id="statistik" class="py-20 bg-slate-100 text-slate-800 relative">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                    <span class="text-xs font-extrabold text-[#007789] uppercase tracking-wider">Kepercayaan Pengguna</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                        Dampak Sehatin Bagi Pengguna
+                    </h2>
+                    <p class="text-slate-600 text-base sm:text-lg">
+                        Statistik penggunaan Sehatin oleh mahasiswa dan masyarakat umum di seluruh Indonesia.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                    <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                        <p class="text-4xl lg:text-5xl font-black text-[#007789] mb-2">120K+</p>
+                        <p class="text-sm font-medium text-slate-600">Rencana Sehat Terbuat</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                        <p class="text-4xl lg:text-5xl font-black text-amber-500 mb-2">98.4%</p>
+                        <p class="text-sm font-medium text-slate-600">Akurasi Perhitungan Kalori</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                        <p class="text-4xl lg:text-5xl font-black text-emerald-600 mb-2">45K+</p>
+                        <p class="text-sm font-medium text-slate-600">Mahasiswa Aktif</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                        <p class="text-4xl lg:text-5xl font-black text-purple-600 mb-2">4.9 / 5</p>
+                        <p class="text-sm font-medium text-slate-600">Rating Kepuasan</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. AGENDA KESEHATAN SECTION -->
+        <section id="agenda" class="py-20 lg:py-28 bg-white relative">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                    <div class="space-y-3 max-w-xl">
+                        <span class="text-xs font-semibold text-[#007789] uppercase tracking-wider">Komunitas &amp; Kegiatan</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                            Agenda &amp; Tantangan Sehatin
+                        </h2>
+                        <p class="text-slate-600 text-base">
+                            Ikuti berbagai tantangan pola hidup sehat harian dan webinar kebugaran bersama para ahli gizi &amp; fitness coach.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Agenda 1 -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold">15-22 Okt 2026</span>
+                            <span class="text-xs text-slate-400 font-medium">Online Challenge</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">
+                            Challenge 7-Hari Pola Makan Sehat Mahasiswa
+                        </h3>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                            Tantangan mengatur porsi makan gizi seimbang hemat biaya selama 7 hari berturut-turut.
+                        </p>
+                        <span class="text-xs font-bold text-[#007789]">Info Tantangan →</span>
+                    </div>
+
+                    <!-- Agenda 2 -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold">25 Okt 2026</span>
+                            <span class="text-xs text-slate-400 font-medium">Webinar Zoom</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">
+                            Webinar: Menjaga Kebugaran di Tengah Kesibukan Kuliah
+                        </h3>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                            Tips manajemen waktu olahraga 15 menit dan menjaga kestabilan energi harian saat tugas menumpuk.
+                        </p>
+                        <span class="text-xs font-bold text-[#007789]">Info Webinar →</span>
+                    </div>
+
+                    <!-- Agenda 3 -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-xs font-bold">08 Nov 2026</span>
+                            <span class="text-xs text-slate-400 font-medium">Workshop Live</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">
+                            Workshop Hitung Kalori &amp; Meal Prep Hemat
+                        </h3>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                            Sesi langsung mempraktekkan perhitungan kalori bahan makanan sehari-hari dan cara persiapan menu 1 minggu.
+                        </p>
+                        <span class="text-xs font-bold text-[#007789]">Info Workshop →</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. TENTANG SECTION -->
+        <section id="tentang" class="py-20 lg:py-28 bg-slate-50 relative">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="max-w-4xl mx-auto bg-gradient-to-br from-white to-teal-50/50 rounded-3xl p-8 sm:p-12 border border-slate-200 text-center space-y-6 shadow-sm">
+                    <span class="text-xs font-bold text-[#007789] uppercase tracking-wider">Visi Sehatin</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900">
+                        Tentang Sehatin
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed text-base sm:text-lg">
+                        Sehatin lahir dari pemahaman bahwa banyak mahasiswa dan masyarakat umum ingin hidup sehat, namun sering bingung menentukan pola makan dan jenis olahraga yang sesuai dengan kondisi tubuh dan jadwal waktu mereka. Sehatin hadir memberikan solusi praktis, terukur, dan terjangkau bagi semua orang.
+                    </p>
+                    <div class="pt-4">
+                        <a href="#fitur" class="inline-block bg-[#007789] hover:bg-[#005a69] text-white font-bold px-8 py-3.5 rounded-xl shadow-md transition-colors text-sm">
+                            Mulai Rencana Sehatmu Hari Ini
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-16 border-t border-slate-800">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <!-- Column 1 -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-[#007789] flex items-center justify-center text-white font-bold">
+                            S
+                        </div>
+                        <span class="text-xl font-bold text-white">Sehatin</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Website penyedia rencana kesehatan harian, kalkulator BMI &amp; kalori harian sesuai kondisi tubuh dan waktu luang pengguna.
+                    </p>
+                </div>
+
+                <!-- Column 2 -->
+                <div>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Navigasi</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#hero" class="hover:text-amber-400 transition-colors">Beranda</a></li>
+                        <li><a href="#fitur" class="hover:text-amber-400 transition-colors">Fitur Utama</a></li>
+                        <li><a href="#kalkulator" class="hover:text-amber-400 transition-colors">Kalkulator BMI &amp; Kalori</a></li>
+                        <li><a href="#statistik" class="hover:text-amber-400 transition-colors">Statistik Dampak</a></li>
+                        <li><a href="#agenda" class="hover:text-amber-400 transition-colors">Agenda &amp; Tantangan</a></li>
+                        <li><a href="#tentang" class="hover:text-amber-400 transition-colors">Tentang Sehatin</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Fitur Sehatin</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><span class="text-slate-400">Hitung Indeks Massa Tubuh (BMI)</span></li>
+                        <li><span class="text-slate-400">Estimasi Kalori Harian (BMR &amp; TDEE)</span></li>
+                        <li><span class="text-slate-400">Panduan Rutinitas Latihan Fisik</span></li>
+                        <li><span class="text-slate-400">Rekomendasi Makanan Sehat Hemat</span></li>
+                        <li><span class="text-slate-400">Daily Plan Adaptif</span></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Kontak Kami</h4>
+                    <p class="text-xs text-slate-400 mb-2">Email: halo@sehatin.id</p>
+                    <p class="text-xs text-slate-400 mb-4">Komunitas: @sehatin.id</p>
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 cursor-default text-xs font-bold">IG</span>
+                        <span class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 cursor-default text-xs font-bold">YT</span>
+                        <span class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 cursor-default text-xs font-bold">TT</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+                <p>&copy; 2026 Sehatin — Web Interface (Task 03 Final).</p>
+            </div>
+        </div>
+    </footer>
+</body>
 </html>
