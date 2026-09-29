@@ -1,0 +1,89 @@
+/* style.css - Sehatin Task 3 Stylesheet */
+:root {
+  --primary: #007789;
+  --primary-hover: #005a69;
+  --secondary: #fbbf24;
+  --secondary-hover: #f59e0b;
+  --yellow: #fef08a;
+  --blue: #e0f2fe;
+  --teal: #007789;
+  --peach: #ffedd5;
+  --dark: #0f172a;
+  --mid: #64748b;
+  --light: #f8fafc;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #007789;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #005a69;
+}
+
+/* Utility Tag Classes */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.tag--yellow {
+  background: var(--yellow);
+  color: var(--dark);
+}
+
+.tag--blue {
+  background: var(--blue);
+  color: var(--dark);
+}
+
+.tag--peach {
+  background: var(--peach);
+  color: var(--dark);
+}
+
+.tag--teal {
+  background: var(--teal);
+  color: #fff;
+}
+
+.section-title {
+  margin-bottom: 16px;
+}
+
+.section-sub {
+  font-size: 16px;
+  color: var(--mid);
+  line-height: 1.7;
+  margin-bottom: 56px;
+}
+
+/* Navbar Scrolled Glassmorphism State */
+.navbar-scrolled {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(12px) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08) !important;
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+}
+
+/* Base Body Styles */
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  overflow-x: hidden;
+}
