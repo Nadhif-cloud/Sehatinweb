@@ -74,7 +74,7 @@
                         class="nav-link text-slate-500 hover:text-[#007789] font-medium text-sm transition-colors">Statistik</a>
                 </li>
                 <li><a href="#agenda"
-                        class="nav-link text-slate-500 hover:text-[#007789] font-medium text-sm transition-colors">Agenda</a>
+                        class="nav-link text-slate-500 hover:text-[#007789] font-medium text-sm transition-colors">Menu Sehat</a>
                 </li>
                 <li><a href="#tentang"
                         class="nav-link text-slate-500 hover:text-[#007789] font-medium text-sm transition-colors">Tentang</a>
@@ -106,7 +106,7 @@
                 class="block py-2 text-sm font-medium text-slate-700 hover:text-[#007789]">Kalkulator</a>
             <a href="#statistik"
                 class="block py-2 text-sm font-medium text-slate-700 hover:text-[#007789]">Statistik</a>
-            <a href="#agenda" class="block py-2 text-sm font-medium text-slate-700 hover:text-[#007789]">Agenda</a>
+            <a href="#agenda"             class="block py-2 text-sm font-medium text-slate-700 hover:text-[#007789]">Menu Sehat</a>
             <a href="#tentang" class="block py-2 text-sm font-medium text-slate-700 hover:text-[#007789]">Tentang</a>
             <div class="pt-2 border-t border-slate-100">
                 <a href="#fitur"
@@ -438,65 +438,30 @@
             </div>
         </section>
 
-        <!-- 5. AGENDA SECTION -->
+        <!-- 5. DATA API: REKOMENDASI MENU SEHAT -->
         <section id="agenda" class="py-20 bg-white">
             <div class="max-w-[1200px] mx-auto px-6">
                 <div class="text-center max-w-[700px] mx-auto mb-12 space-y-3">
                     <span
                         class="inline-flex items-center gap-1.5 text-xs font-bold px-3.5 py-1.5 rounded-full bg-teal-100 text-[#007789] uppercase tracking-wider">
-                        Komunitas &amp; Kegiatan
+                        Mulai Hidup Sehatmu Dari Makanan Yang Tepat
                     </span>
                     <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-                        Agenda &amp; Tantangan Sehatin
+                        Rekomendasi Menu Sehat
                     </h2>
                     <p class="text-base text-slate-500 leading-relaxed">
-                        Ikuti berbagai tantangan pola hidup sehat harian dan webinar kebugaran bersama para ahli gizi
-                        &amp; fitness coach.
+                        Pilihan resep lengkap dengan informasi bahan, waktu memasak, dan kalori per sajian.
                     </p>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div
-                        class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 space-y-3">
-                        <span
-                            class="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full bg-sky-100 text-slate-900 uppercase">
-                            15-22 Okt 2026
-                        </span>
-                        <h3 class="text-base sm:text-lg font-bold text-slate-900">Challenge 7-Hari Pola Makan Sehat</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed">Tantangan mengatur porsi makan gizi seimbang
-                            hemat biaya selama 7 hari berturut-turut.</p>
-                        <a href="#agenda"
-                            class="text-xs font-bold text-[#007789] hover:underline inline-block pt-1">Info Tantangan
-                            →</a>
-                    </div>
-
-                    <div
-                        class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 space-y-3">
-                        <span
-                            class="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full bg-teal-100 text-[#007789] uppercase">
-                            25 Okt 2026
-                        </span>
-                        <h3 class="text-base sm:text-lg font-bold text-slate-900">Webinar: Kebugaran Saat Kuliah</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed">Tips manajemen waktu olahraga 15 menit dan
-                            menjaga kestabilan energi harian saat tugas menumpuk.</p>
-                        <a href="#agenda"
-                            class="text-xs font-bold text-[#007789] hover:underline inline-block pt-1">Info Webinar
-                            →</a>
-                    </div>
-
-                    <div
-                        class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 space-y-3">
-                        <span
-                            class="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full bg-yellow-100 text-slate-900 uppercase">
-                            08 Nov 2026
-                        </span>
-                        <h3 class="text-base sm:text-lg font-bold text-slate-900">Workshop Hitung Kalori</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed">Sesi langsung mempraktekkan perhitungan kalori
-                            bahan makanan sehari-hari dan meal prep hemat.</p>
-                        <a href="#agenda"
-                            class="text-xs font-bold text-[#007789] hover:underline inline-block pt-1">Info Workshop
-                            →</a>
-                    </div>
+                <!-- Status request API berubah menjadi loading, berhasil, atau gagal. -->
+                <p id="program-api-status" class="mb-6 text-center text-sm text-slate-500" role="status"
+                    aria-live="polite">
+                    Menyiapkan request data...
+                </p>
+                <div id="program-api-list" class="grid md:grid-cols-3 gap-6"></div>
+                <div class="mt-6 text-center text-xs text-slate-400">
+                    Sumber data: <span id="program-api-name">REST API</span>
                 </div>
             </div>
         </section>
@@ -541,7 +506,7 @@
                     <li><a href="#kalkulator" class="hover:text-amber-400 transition-colors">Kalkulator BMI &amp;
                             Kalori</a></li>
                     <li><a href="#statistik" class="hover:text-amber-400 transition-colors">Statistik Dampak</a></li>
-                    <li><a href="#agenda" class="hover:text-amber-400 transition-colors">Agenda &amp; Tantangan</a></li>
+                    <li><a href="#agenda" class="hover:text-amber-400 transition-colors">Rekomendasi Menu Sehat</a></li>
                     <li><a href="#tentang" class="hover:text-amber-400 transition-colors">Tentang Sehatin</a></li>
                 </ul>
             </div>
