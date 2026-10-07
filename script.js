@@ -1,5 +1,151 @@
 // script.js - Sehatin Interactive JavaScript
 document.addEventListener('DOMContentLoaded', () => {
+  // API program kesehatan: baca konfigurasi JSON, lalu minta data resep dari REST API.
+  const programApiStatus = document.getElementById('program-api-status');
+  const programApiList = document.getElementById('program-api-list');
+  const programApiName = document.getElementById('program-api-name');
+
+  const setProgramApiStatus = (message, state) => {
+    if (!programApiStatus) return;
+
+    programApiStatus.textContent = message;
+    programApiStatus.className = 'mb-6 text-center text-sm';
+    programApiStatus.setAttribute('role', state === 'error' ? 'alert' : 'status');
+
+    if (state === 'error') {
+      programApiStatus.classList.add('text-red-700');
+    } else if (state === 'success') {
+      programApiStatus.classList.add('text-emerald-700');
+    } else {
+      programApiStatus.classList.add('text-slate-500');
+    }
+  };
+
+  const showProgramApiError = (message) => {
+    if (programApiList) {
+      const errorMessage = document.createElement('p');
+      errorMessage.className = 'md:col-span-3 rounded-2xl border border-red-200 bg-red-50 p-6 text-center text-sm text-red-700';
+      errorMessage.textContent = message;
+      programApiList.replaceChildren(errorMessage);
+    }
+    setProgramApiStatus('Data program tidak dapat ditampilkan.', 'error');
+    console.error(message);
+  };
+
+  const addRecipeDetail = (card, label, value) => {
+    const detail = document.createElement('p');
+    detail.className = 'text-xs text-slate-500';
+    detail.textContent = `${label}: ${value}`;
+    card.append(detail);
+  };
+
+  const renderProgramRecipes = (recipes) => {
+    if (!programApiList) return;
+
+    // Buat elemen DOM satu per satu agar teks dari API tidak diperlakukan sebagai HTML.
+    const recipeCards = recipes.map((recipe) => {
+      const card = document.createElement('article');
+      card.className = 'overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-md';
+
+      const image = document.createElement('img');
+      image.className = 'h-48 w-full object-cover';
+      image.src = recipe.image;
+      image.alt = `Foto ${recipe.name}`;
+      image.loading = 'lazy';
+      card.append(image);
+
+      const content = document.createElement('div');
+      content.className = 'space-y-3 p-6';
+
+      const cuisine = document.createElement('p');
+      cuisine.className = 'text-xs font-bold uppercase tracking-wide text-[#007789]';
+      cuisine.textContent = `${recipe.cuisine} • ${recipe.mealType.join(', ')}`;
+      content.append(cuisine);
+
+      const title = document.createElement('h3');
+      title.className = 'text-base font-bold text-slate-900';
+      title.textContent = recipe.name;
+      content.append(title);
+
+      addRecipeDetail(content, 'Kalori', `${recipe.caloriesPerServing} kcal / sajian`);
+      addRecipeDetail(content, 'Waktu memasak', `${recipe.prepTimeMinutes + recipe.cookTimeMinutes} menit`);
+      addRecipeDetail(content, 'Bahan', recipe.ingredients.slice(0, 4).join(', '));
+      card.append(content);
+      return card;
+    });
+
+    programApiList.replaceChildren(...recipeCards);
+  };
+
+  const loadProgramRecipes = async () => {
+    if (!programApiStatus || !programApiList) return;
+
+    setProgramApiStatus('Memuat rekomendasi menu dari API...', 'loading');
+    programApiList.replaceChildren();
+
+    let config;
+    try {
+      // program.json menyimpan nama API dan URL endpoint agar konfigurasi mudah ditemukan.
+      const configResponse = await fetch('data/program.json');
+      if (!configResponse.ok) {
+        throw new Error(`Konfigurasi program gagal dimuat (HTTP ${configResponse.status}).`);
+      }
+
+      config = await configResponse.json();
+      if (typeof config.apiUrl !== 'string' || typeof config.apiName !== 'string') {
+        throw new Error('Konfigurasi data/program.json belum memiliki apiUrl dan apiName yang valid.');
+      }
+    } catch (error) {
+      const message = error instanceof Error
+        ? error.message
+        : 'Terjadi kesalahan saat membaca konfigurasi data/program.json.';
+      showProgramApiError(message);
+      return;
+    }
+
+    if (programApiName) programApiName.textContent = config.apiName;
+
+    // Fetch ke REST API menerima response JSON, lalu datanya diteruskan ke fungsi render.
+    let response;
+    try {
+      response = await fetch(config.apiUrl);
+    } catch (error) {
+      showProgramApiError('Tidak dapat terhubung ke API. Periksa koneksi internet, lalu coba lagi.');
+      return;
+    }
+
+    if (!response.ok) {
+      if (response.status === 404) {
+        showProgramApiError('Data menu tidak ditemukan (404). Periksa endpoint API pada data/program.json.');
+      } else {
+        showProgramApiError(`Request API gagal dengan HTTP ${response.status}. Silakan coba lagi nanti.`);
+      }
+      return;
+    }
+
+    let data;
+    try {
+      data = await response.json();
+    } catch (error) {
+      showProgramApiError('Response API tidak dapat dibaca sebagai JSON.');
+      return;
+    }
+
+    if (!Array.isArray(data.recipes)) {
+      showProgramApiError('Format response API tidak sesuai: daftar resep tidak ditemukan.');
+      return;
+    }
+    if (data.recipes.length === 0) {
+      setProgramApiStatus('Request berhasil, tetapi API belum memiliki data menu untuk ditampilkan.', 'success');
+      return;
+    }
+
+    renderProgramRecipes(data.recipes);
+    setProgramApiStatus(`Berhasil memuat ${data.recipes.length} menu dari API.`, 'success');
+  };
+
+  loadProgramRecipes();
+
   // 1. NAVBAR SCROLL EFFECT & ACTIVE SECTION HIGHLIGHT
   const headerNav = document.getElementById('navbar-header');
   const navLinks = document.querySelectorAll('.nav-link');
