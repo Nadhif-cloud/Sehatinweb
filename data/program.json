@@ -1,0 +1,4 @@
+{
+  "apiName": "DummyJSON Recipes API",
+  "apiUrl": "https://dummyjson.com/recipes?limit=6&select=name,image,ingredients,cuisine,mealType,prepTimeMinutes,cookTimeMinutes,caloriesPerServing,rating,tags"
+}
