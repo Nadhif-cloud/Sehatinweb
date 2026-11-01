@@ -92,6 +92,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       config = await configResponse.json();
+
+      if (Array.isArray(config.recipes) && !config.apiUrl && !config.apiName) {
+        if (programApiName) programApiName.textContent = 'Data lokal';
+        renderProgramRecipes(config.recipes);
+        setProgramApiStatus(`Berhasil memuat ${config.recipes.length} menu dari data lokal.`, 'success');
+        return;
+      }
+
       if (typeof config.apiUrl !== 'string' || typeof config.apiName !== 'string') {
         throw new Error('Konfigurasi data/program.json belum memiliki apiUrl dan apiName yang valid.');
       }
