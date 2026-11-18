@@ -1,6 +1,10 @@
 # Sehatin
 
-Sehatin adalah website bertema kesehatan yang menyediakan informasi program olahraga, menu makanan sehat, kalkulator BMI, serta rencana aktivitas harian. Project ini dikembangkan secara bertahap dari tampilan web statis sampai halaman dinamis menggunakan PHP.
+Sehatin adalah website bertema kesehatan yang menyediakan informasi program olahraga, menu makanan sehat, kalkulator BMI, serta rencana aktivitas harian. Project ini dikembangkan bertahap dari halaman statis dan PHP sampai aplikasi Laravel untuk pengelolaan program.
+
+## Struktur Project Saat Ini
+
+Aplikasi Laravel Week 9 berada di folder utama repository. Folder `app/`, `routes/`, `resources/`, dan `database/migrations/` adalah bagian aplikasi Laravel yang aktif. File HTML, CSS, JavaScript, serta folder `controller/`, `model/`, dan `view/` di root merupakan hasil tahap tugas sebelumnya dan dipertahankan sebagai riwayat pekerjaan. `public/sehatin.html` adalah salinan halaman utama yang disajikan oleh route `/`, sedangkan aset pada `public/assets/` dipakai oleh halaman di dalam folder `public/`.
 
 ## Riwayat Pekerjaan Week 1–7
 
@@ -53,6 +57,21 @@ Seluruh task berikut ditandai selesai berdasarkan file dan riwayat perubahan yan
 - [x] **Task 1 — Menyiapkan fondasi Laravel dan struktur data program.** Project Laravel dilengkapi konfigurasi aplikasi, model [Program](./app/Models/Program.php), serta migration [create_programs_table](./database/migrations/2026_11_11_000000_create_programs_table.php) untuk menyimpan nama dan deskripsi program.
 - [x] **Task 2 — Membuat fitur CRUD program.** [ProgramController](./app/Http/Controllers/ProgramController.php) menangani daftar, detail, tambah, edit, dan hapus program. Fitur dihubungkan melalui resource route di [routes/web.php](./routes/web.php) dan halaman Blade pada `resources/views/programs/`.
 - [x] **Task 3 — Menambahkan validasi dan alur formulir.** Form tambah dan edit memakai [StoreProgramRequest](./app/Http/Requests/StoreProgramRequest.php) serta [UpdateProgramRequest](./app/Http/Requests/UpdateProgramRequest.php). Setelah data disimpan, diperbarui, atau dihapus, pengguna diarahkan kembali ke daftar dengan pesan status.
+
+### Week 10 — Controller, routing, validasi, dan REST API
+
+- [x] **Task 1 — Menangani CRUD melalui controller.** Route web mengarahkan operasi daftar, detail, tambah, ubah, dan hapus ke [ProgramController](./app/Http/Controllers/ProgramController.php).
+- [x] **Task 2 — Memvalidasi request create dan update.** [StoreProgramRequest](./app/Http/Requests/StoreProgramRequest.php) dan [UpdateProgramRequest](./app/Http/Requests/UpdateProgramRequest.php) mewajibkan nama serta deskripsi; nama dibatasi maksimal 100 karakter.
+- [x] **Task 3 — Menyediakan REST API program.** [ProgramApiController](./app/Http/Controllers/ProgramApiController.php) mengembalikan data JSON untuk operasi CRUD dan menggunakan status HTTP `200`, `201`, `404`, serta `422` sesuai hasil request. Endpoint didaftarkan melalui [routes/api.php](./routes/api.php).
+
+| Method | Endpoint | Fungsi |
+| --- | --- | --- |
+| `GET` | `/api/programs` | Mengambil semua program |
+| `POST` | `/api/programs` | Membuat program |
+| `GET` | `/api/programs/{id}` | Mengambil detail program |
+| `PUT` / `PATCH` | `/api/programs/{id}` | Memperbarui program |
+| `DELETE` | `/api/programs/{id}` | Menghapus program |
+
 ## Struktur File Utama
 
 ```text

@@ -22,9 +22,20 @@ class StoreProgramRequest extends FormRequest
      */
     public function rules(): array
     {
+        // Aturan ini tetap memeriksa data di server, meskipun validasi browser dilewati.
         return [
-            'nama' => ['required', 'string', 'max:255'],
+            'nama' => ['required', 'string', 'max:100'],
             'deskripsi' => ['required', 'string'],
+        ];
+    }
+
+    /** @return array<string, string> */
+    public function messages(): array
+    {
+        return [
+            'nama.required' => 'Nama program wajib diisi.',
+            'nama.max' => 'Nama program maksimal 100 karakter.',
+            'deskripsi.required' => 'Deskripsi program wajib diisi.',
         ];
     }
 }
