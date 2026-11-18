@@ -1,0 +1,81 @@
+/* 2.css - Transisi ke Tailwind CSS (Sesuai Modul Pertemuan 3: Slide 8)
+ * Tetap desain yang sama, cara menulisnya yang berbeda:
+ * Lebih Cepat (utility class langsung)
+ * Lebih Praktis (tanpa perlu buat banyak CSS terpisah)
+ * Konsisten (skala warna, spacing, dan tipografi seragam)
+ * Responsif (mudah disesuaikan untuk berbagai ukuran layar)
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #007789;
+  --primary-hover: #005a69;
+  --secondary: #fbbf24;
+  --secondary-hover: #f59e0b;
+  --yellow: #fef08a;
+  --blue: #e0f2fe;
+  --teal: #007789;
+  --peach: #ffedd5;
+  --dark: #0f172a;
+  --mid: #64748b;
+  --light: #f8fafc;
+  --white: #ffffff;
+  --border: #e2e8f0;
+  --font-main: 'Poppins', system-ui, -apple-system, sans-serif;
+}
+
+/* Base Body Styles */
+body {
+  font-family: var(--font-main);
+  line-height: 1.6;
+  font-size: 15px;
+  background-color: var(--light);
+  color: var(--dark);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-hover);
+}
+
+/* Tailwind @layer components untuk reusable styling */
+@layer components {
+  .tag {
+    @apply inline-flex items-center gap-1.5 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider;
+  }
+  .tag--teal {
+    @apply bg-teal-100 text-[#007789];
+  }
+  .tag--yellow {
+    @apply bg-yellow-100 text-slate-900;
+  }
+  .tag--blue {
+    @apply bg-sky-100 text-slate-900;
+  }
+  .tag--peach {
+    @apply bg-orange-100 text-slate-900;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl font-bold text-sm transition-all duration-200;
+  }
+  .btn-primary {
+    @apply bg-amber-400 hover:bg-amber-500 text-slate-900 shadow-sm hover:shadow transform hover:-translate-y-0.5;
+  }
+  .btn-outline {
+    @apply bg-white text-slate-800 border border-slate-200 hover:border-[#007789] hover:text-[#007789] shadow-sm hover:shadow transform hover:-translate-y-0.5;
+  }
+}

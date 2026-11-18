@@ -23,3 +23,18 @@ pnpm-debug.log*
 
 # Local environment variables
 .env.local
+
+# Laravel
+/.env
+/.env.*
+!/.env.example
+/vendor/
+/node_modules/
+/public/build/
+/public/hot
+/public/storage
+/storage/*.key
+/.phpunit.cache/
+/.phpunit.result.cache
+/database/*.sqlite
+/auth.json
