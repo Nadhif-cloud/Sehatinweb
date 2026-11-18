@@ -48,6 +48,11 @@ Seluruh task berikut ditandai selesai berdasarkan file dan riwayat perubahan yan
 - [x] **Task 2 — Meng-upgrade halaman rekomendasi menu sehat.** [view/sehatin-page.php](./view/sehatin-page.php) menampilkan nama menu, gambar, jenis makanan, tingkat kesulitan, kalori, waktu memasak, dan bahan.
 - [x] **Task 3 — Menambahkan keamanan dan penanganan error dasar.** Data keluaran di-escape dengan `htmlspecialchars`, data JSON divalidasi, serta kondisi data gagal atau kosong diberi pesan kepada pengguna.
 
+### Week 9 — Aplikasi Laravel untuk pengelolaan program
+
+- [x] **Task 1 — Menyiapkan fondasi Laravel dan struktur data program.** Project Laravel dilengkapi konfigurasi aplikasi, model [Program](./app/Models/Program.php), serta migration [create_programs_table](./database/migrations/2026_11_11_000000_create_programs_table.php) untuk menyimpan nama dan deskripsi program.
+- [x] **Task 2 — Membuat fitur CRUD program.** [ProgramController](./app/Http/Controllers/ProgramController.php) menangani daftar, detail, tambah, edit, dan hapus program. Fitur dihubungkan melalui resource route di [routes/web.php](./routes/web.php) dan halaman Blade pada `resources/views/programs/`.
+- [x] **Task 3 — Menambahkan validasi dan alur formulir.** Form tambah dan edit memakai [StoreProgramRequest](./app/Http/Requests/StoreProgramRequest.php) serta [UpdateProgramRequest](./app/Http/Requests/UpdateProgramRequest.php). Setelah data disimpan, diperbarui, atau dihapus, pengguna diarahkan kembali ke daftar dengan pesan status.
 ## Struktur File Utama
 
 ```text
